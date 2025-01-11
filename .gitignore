@@ -21,3 +21,4 @@
 /web_application_task/.nova
 /web_application_task/.vscode
 /web_application_task/.zed
+__pycache__

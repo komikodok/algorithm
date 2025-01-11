@@ -4,13 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <title>@yield('title')</title>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+        <!-- jQuery should come first -->
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+        <!-- Axios for HTTP requests -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <title>@yield('title')</title>
+
+        <!-- DataTables JS (latest version) -->
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+        <!-- Optional: DataTables Bootstrap 4 integration -->
         <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Fonts and stylesheets -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -32,23 +33,21 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
                 'avatar' => $imageName,
             ]);
-            return response()->json(['message' => 'User created successfully!'], 201);
+            return response()->json(['message' => 'Berhasil membuat user'], 201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Gagal membuat pengguna', 'error' => $e->getMessage()], 500);
+            Log::info('Database message: ' . $e);
+            return response()->json(['message' => 'Gagal membuat user', 'error' => $e->getMessage()], 500);
         }
     }
 
     public function getUsersData(Request $request)
     {
-        $users = User::select('id', 'email', 'name', 'avatar')->get();
-
-        if ($request->ajax()) {
-            return DataTables::of($users)
-                ->addColumn('avatar', function($user) {
-                    return '<img src="' . asset('uploads/' . $user->avatar) . '" width="200" height="200">';
-                })
-                ->rawColumns(['avatar'])
-                ->make(true);
-        }
+        $users = User::select('id', 'email', 'name', 'avatar');
+        return DataTables::of($users)
+            ->addColumn('avatar', function($user) {
+                return '<img src="' . asset('uploads/' . $user->avatar) . '" width="200" height="200">';
+            })
+            ->rawColumns(['avatar'])
+            ->make(true);
     }
 }
