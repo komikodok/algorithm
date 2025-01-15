@@ -1,5 +1,6 @@
 /web_application_task/.phpunit.cache
 /web_application_task/node_modules
+web_application_task/public/uploads/
 /web_application_task/public/build
 /web_application_task/public/hot
 /web_application_task/public/storage

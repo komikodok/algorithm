@@ -25,8 +25,8 @@
         <!-- Fonts and stylesheets -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.x/dist/tailwind.min.css" rel="stylesheet">
+        {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
